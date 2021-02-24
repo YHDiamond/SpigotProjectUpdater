@@ -1,3 +1,8 @@
+#Plugin by Jens
+
+#each server restart and 24h after the server has been started this plugin will download the latest version of each enabled plugin.
+version: 1
+
 Auto-Update-ViaVersion: false
 
 Auto-Update-WorldEdit: false

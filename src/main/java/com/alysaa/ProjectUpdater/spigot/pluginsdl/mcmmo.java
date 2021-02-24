@@ -12,10 +12,11 @@ import java.net.URLConnection;
 
 public class mcmmo {
     public static void mcmmoDownload() {
+        SpigotUpdater.plugin.getLogger().info("Downloading latest Mcmmo build!");
         OutputStream os = null;
         InputStream is = null;
         String fileUrl = "https://popicraft.net/jenkins/job/mcMMO/lastSuccessfulBuild/artifact/mcMMO/target/mcMMO.jar";
-        String outputPath = ("mcMMO.jar");
+        String outputPath = ("plugins/update/mcMMO.jar");
         try {
             // create a url object
             URL url = new URL(fileUrl);

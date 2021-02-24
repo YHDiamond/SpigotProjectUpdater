@@ -12,10 +12,11 @@ import java.net.URLConnection;
 
 public class worldedit {
     public static void WorldEditDownload() {
+        SpigotUpdater.plugin.getLogger().info("Downloading latest WorldEdit build!");
         OutputStream os = null;
         InputStream is = null;
         String fileUrl = "https://dev.bukkit.org/projects/worldedit/files/latest";
-        String outputPath = ("worldedit-bukkit.jar");
+        String outputPath = ("plugins/update/worldedit-bukkit.jar");
         try {
             // create a url object
             URL url = new URL(fileUrl);
@@ -50,19 +51,15 @@ public class worldedit {
                 }
             }
         }
-        if (SpigotUpdater.plugin.getConfig().getBoolean("Auto-Restart-Server")) {
-            SpigotUpdater.plugin.getLogger().info("[ProjectUpdater] The Server will restart in 10 seconds!");
-            Runnable runnable = () -> {
-                try {
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        if (new SpigotUpdater().getConfig().getBoolean("Auto-Update-LuckPerms")) {
+            try {
+                luckperms.luckpermsDownload();
+                if (SpigotUpdater.plugin.getConfig().getBoolean("Auto-Restart-Server")) {
+                    SpigotUpdater.plugin.getLogger().info("[ProjectUpdater] The Server will restart in 10 seconds!");
                 }
-            };
-            Thread thread = new Thread(runnable);
-            thread.start();
-            Bukkit.spigot().restart();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
-

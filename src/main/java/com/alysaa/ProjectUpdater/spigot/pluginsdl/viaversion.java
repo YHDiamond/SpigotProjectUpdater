@@ -12,10 +12,11 @@ import java.net.URLConnection;
 
 public class viaversion {
     public static void ViaVersionDownload() {
+        SpigotUpdater.plugin.getLogger().info("Downloading latest ViaVersion build!");
         OutputStream os = null;
         InputStream is = null;
         String fileUrl = "https://ci.viaversion.com/job/ViaVersion/lastSuccessfulBuild/artifact/jar/target/ViaVersion-3.2.2-SNAPSHOT.jar";
-        String outputPath = ("ViaVersion-3.2.2-SNAPSHOT.jar");
+        String outputPath = ("plugins/update/ViaVersion-3.2.2-SNAPSHOT.jar");
         try {
             // create a url object
             URL url = new URL(fileUrl);
@@ -50,18 +51,15 @@ public class viaversion {
                 }
             }
         }
-        if (SpigotUpdater.plugin.getConfig().getBoolean("Auto-Restart-Server")) {
-            SpigotUpdater.plugin.getLogger().info("[ProjectUpdater] The Server will restart in 10 seconds!");
-            Runnable runnable = () -> {
-                try {
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        if (new SpigotUpdater().getConfig().getBoolean("Auto-Update-WorldEdit")) {
+            try {
+                worldedit.WorldEditDownload();
+                if (SpigotUpdater.plugin.getConfig().getBoolean("Auto-Restart-Server")) {
+                    SpigotUpdater.plugin.getLogger().info("[ProjectUpdater] The Server will restart in 10 seconds!");
                 }
-            };
-            Thread thread = new Thread(runnable);
-            thread.start();
-            Bukkit.spigot().restart();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

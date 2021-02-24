@@ -14,65 +14,32 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Logger;
 
-public abstract class SpigotUpdater extends JavaPlugin {
+public class SpigotUpdater extends JavaPlugin {
     public static SpigotUpdater plugin;
     private FileConfiguration config;
 
     @Override
     public void onEnable() {
+        plugin = this;
         getLogger().info("ProjectUpdater v0.0.1 has been enabled");
         enableCommands();
-        enableBooleans();
+        enableUpdateCycle();
         createFiles();
         checkConfigVer();
-        plugin = this;
 
     }
 
-    private void enableBooleans() {
-        if (getConfig().getBoolean("Auto-Update-ViaVersion")) {
-            try {
-                Timer StartAutoUpdate;
-                StartAutoUpdate = new Timer();
-                StartAutoUpdate.schedule(new viaversiontimer(), 0, 100 * 60 * 14400);
-                // Auto Update Cycle on Startup and each 24h after startup
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        if (getConfig().getBoolean("Auto-Update-WorldEdit")) {
-            try {
-                Timer StartAutoUpdate;
-                StartAutoUpdate = new Timer();
-                StartAutoUpdate.schedule(new worldedittimer(), 0, 100 * 60 * 14400);
-                // Auto Update Cycle on Startup and each 24h after startup
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        if (getConfig().getBoolean("Auto-Update-LuckPerms")) {
-            try {
-                Timer StartAutoUpdate;
-                StartAutoUpdate = new Timer();
-                StartAutoUpdate.schedule(new luckpermstimer(), 0, 100 * 60 * 14400);
-                // Auto Update Cycle on Startup and each 24h after startup
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        if (getConfig().getBoolean("Auto-Update-Mcmmo")) {
-            try {
-                Timer StartAutoUpdate;
-                StartAutoUpdate = new Timer();
-                StartAutoUpdate.schedule(new mcmmotimer(), 0, 100 * 60 * 14400);
-                // Auto Update Cycle on Startup and each 24h after startup
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    private void enableUpdateCycle() {
+        Timer StartAutoUpdate;
+        StartAutoUpdate = new Timer();
+        StartAutoUpdate.schedule(new viaversiontimer(), 0, 100 * 60 * 14400);
+        // Auto Update Cycle on Startup and each 24h after startup
     }
     private void enableCommands() {
-        this.getCommand("update").setExecutor(new updateCommand());
+        this.getCommand("updateviaversion").setExecutor(new updateCommand());
+        this.getCommand("updateworldedit").setExecutor(new updateCommand());
+        this.getCommand("updatemcmmo").setExecutor(new updateCommand());
+        this.getCommand("updateluckperms").setExecutor(new updateCommand());
     }
     private void checkConfigVer() {
         Logger logger = this.getLogger();
@@ -105,28 +72,11 @@ public abstract class SpigotUpdater extends JavaPlugin {
     @Override
     public void onDisable() {
     }
+
     private static class viaversiontimer extends TimerTask {
         @Override
         public void run() {
             com.alysaa.ProjectUpdater.spigot.pluginsdl.viaversion.ViaVersionDownload();
-        }
-    }
-    private static class worldedittimer extends TimerTask {
-        @Override
-        public void run() {
-            com.alysaa.ProjectUpdater.spigot.pluginsdl.worldedit.WorldEditDownload();
-        }
-    }
-    private static class luckpermstimer extends TimerTask {
-        @Override
-        public void run() {
-            com.alysaa.ProjectUpdater.spigot.pluginsdl.luckperms.luckpermsDownload();
-        }
-    }
-    private static class mcmmotimer extends TimerTask {
-        @Override
-        public void run() {
-            com.alysaa.ProjectUpdater.spigot.pluginsdl.mcmmo.mcmmoDownload();
         }
     }
 }

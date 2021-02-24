@@ -4,7 +4,24 @@ version: 0.0.1
 api-version: 1.15
 description: Spigot Plugin Updater
 commands:
-  geyserupdate:
+  updateviaversion:
     description: updating command
     permission: project.update
-    aliases: /update
+    aliases: /updateviaversion
+    updateviaversion:
+  updateluckperms:
+    description: updating command
+    permission: project.update
+    aliases: /updateluckperms
+  updatemcmmo:
+    description: updating command
+    permission: project.update
+    aliases: /updatemcmmo
+  updateworldedit:
+    description: updating command
+    permission: project.update
+    aliases: /updateworldedit
+
+
+
+
