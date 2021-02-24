@@ -19,6 +19,30 @@ public class updateCommand implements CommandExecutor {
                     e.printStackTrace();
                 }
             }
+            if (command.getName().equalsIgnoreCase("updateviaversion") && player.hasPermission("pu.updateviaversion")) {
+                try {
+                    com.alysaa.ProjectUpdater.spigot.pluginsdl.viaversion.ViaVersionDownload();
+                    sender.sendMessage(ChatColor.WHITE + "[ProjectUpdater] Updating ViaVersion!");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (command.getName().equalsIgnoreCase("updateviaversion") && player.hasPermission("pu.updateviaversion")) {
+                try {
+                    com.alysaa.ProjectUpdater.spigot.pluginsdl.viaversion.ViaVersionDownload();
+                    sender.sendMessage(ChatColor.WHITE + "[ProjectUpdater] Updating ViaVersion!");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (command.getName().equalsIgnoreCase("updateviaversion") && player.hasPermission("pu.updateviaversion")) {
+                try {
+                    com.alysaa.ProjectUpdater.spigot.pluginsdl.viaversion.ViaVersionDownload();
+                    sender.sendMessage(ChatColor.WHITE + "[ProjectUpdater] Updating ViaVersion!");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return false;
     }
