@@ -1,0 +1,10 @@
+name: ProjectUpdater
+main: com.alysaa.ProjectUpdater.spigot.SpigotUpdater
+version: 0.0.1
+api-version: 1.15
+description: Spigot Plugin Updater
+commands:
+  geyserupdate:
+    description: updating command
+    permission: project.update
+    aliases: /update
