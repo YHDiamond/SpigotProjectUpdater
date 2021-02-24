@@ -19,26 +19,26 @@ public class updateCommand implements CommandExecutor {
                     e.printStackTrace();
                 }
             }
-            if (command.getName().equalsIgnoreCase("updateviaversion") && player.hasPermission("pu.updateviaversion")) {
+            if (command.getName().equalsIgnoreCase("updateluckperms") && player.hasPermission("pu.updateluckperms")) {
                 try {
-                    com.alysaa.ProjectUpdater.spigot.pluginsdl.viaversion.ViaVersionDownload();
-                    sender.sendMessage(ChatColor.WHITE + "[ProjectUpdater] Updating ViaVersion!");
+                    com.alysaa.ProjectUpdater.spigot.pluginsdl.luckperms.luckpermsDownload();
+                    sender.sendMessage(ChatColor.WHITE + "[ProjectUpdater] Updating LuckPerms!");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            if (command.getName().equalsIgnoreCase("updateviaversion") && player.hasPermission("pu.updateviaversion")) {
+            if (command.getName().equalsIgnoreCase("updateworldedit") && player.hasPermission("pu.updateworldedit")) {
                 try {
-                    com.alysaa.ProjectUpdater.spigot.pluginsdl.viaversion.ViaVersionDownload();
-                    sender.sendMessage(ChatColor.WHITE + "[ProjectUpdater] Updating ViaVersion!");
+                    com.alysaa.ProjectUpdater.spigot.pluginsdl.worldedit.WorldEditDownload();
+                    sender.sendMessage(ChatColor.WHITE + "[ProjectUpdater] Updating WorldEdit!");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            if (command.getName().equalsIgnoreCase("updateviaversion") && player.hasPermission("pu.updateviaversion")) {
+            if (command.getName().equalsIgnoreCase("updatemcmmo") && player.hasPermission("pu.updatemcmmo")) {
                 try {
-                    com.alysaa.ProjectUpdater.spigot.pluginsdl.viaversion.ViaVersionDownload();
-                    sender.sendMessage(ChatColor.WHITE + "[ProjectUpdater] Updating ViaVersion!");
+                    com.alysaa.ProjectUpdater.spigot.pluginsdl.mcmmo.mcmmoDownload();
+                    sender.sendMessage(ChatColor.WHITE + "[ProjectUpdater] Updating Mcmmo!");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
