@@ -51,16 +51,6 @@ public class viaversion {
                 }
             }
         }
-        if (new SpigotUpdater().getConfig().getBoolean("Auto-Update-WorldEdit")) {
-            try {
-                worldedit.WorldEditDownload();
-                if (SpigotUpdater.plugin.getConfig().getBoolean("Auto-Restart-Server")) {
-                    SpigotUpdater.plugin.getLogger().info("[ProjectUpdater] The Server will restart in 10 seconds!");
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
 }
 

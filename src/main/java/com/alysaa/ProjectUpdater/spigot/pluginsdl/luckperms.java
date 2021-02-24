@@ -51,11 +51,5 @@ public class luckperms {
                 }
             }
         }
-        if (SpigotUpdater.plugin.getConfig().getBoolean("Auto-Update-Mcmmo")) {
-            mcmmo.mcmmoDownload();
-        }
-        if (SpigotUpdater.plugin.getConfig().getBoolean("Auto-Restart-Server")) {
-            SpigotUpdater.plugin.getLogger().info("[ProjectUpdater] The Server will restart in 10 seconds!");
-        }
     }
 }

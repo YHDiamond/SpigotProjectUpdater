@@ -51,18 +51,5 @@ public class mcmmo {
                 }
             }
         }
-        if (SpigotUpdater.plugin.getConfig().getBoolean("Auto-Restart-Server")) {
-            SpigotUpdater.plugin.getLogger().info("[ProjectUpdater] The Server will restart in 10 seconds!");
-            Runnable runnable = () -> {
-                try {
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            };
-            Thread thread = new Thread(runnable);
-            thread.start();
-            Bukkit.spigot().restart();
-        }
     }
 }

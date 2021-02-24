@@ -51,15 +51,5 @@ public class worldedit {
                 }
             }
         }
-        if (new SpigotUpdater().getConfig().getBoolean("Auto-Update-LuckPerms")) {
-            try {
-                luckperms.luckpermsDownload();
-                if (SpigotUpdater.plugin.getConfig().getBoolean("Auto-Restart-Server")) {
-                    SpigotUpdater.plugin.getLogger().info("[ProjectUpdater] The Server will restart in 10 seconds!");
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
 }
