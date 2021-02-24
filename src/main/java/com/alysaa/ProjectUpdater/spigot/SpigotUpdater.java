@@ -2,7 +2,6 @@ package com.alysaa.ProjectUpdater.spigot;
 
 
 import com.alysaa.ProjectUpdater.spigot.command.updateCommand;
-import com.alysaa.ProjectUpdater.spigot.pluginsdl.worldedit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -72,11 +71,9 @@ public abstract class SpigotUpdater extends JavaPlugin {
             }
         }
     }
-
     private void enableCommands() {
         this.getCommand("update").setExecutor(new updateCommand());
     }
-
     private void checkConfigVer() {
         Logger logger = this.getLogger();
         //Change version number only when editing config.yml!
@@ -84,7 +81,6 @@ public abstract class SpigotUpdater extends JavaPlugin {
             logger.info("Config.yml is outdated. please regenerate a new config.yml!");
         }
     }
-
     private void createFiles() {
         File configFile = new File(getDataFolder(), "config.yml");
         if (!configFile.exists()) {
@@ -106,19 +102,15 @@ public abstract class SpigotUpdater extends JavaPlugin {
         }
 
     }
-
     @Override
     public void onDisable() {
-
     }
-
     private static class viaversiontimer extends TimerTask {
         @Override
         public void run() {
             com.alysaa.ProjectUpdater.spigot.pluginsdl.viaversion.ViaVersionDownload();
         }
     }
-
     private static class worldedittimer extends TimerTask {
         @Override
         public void run() {

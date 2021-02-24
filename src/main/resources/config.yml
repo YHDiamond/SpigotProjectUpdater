@@ -4,4 +4,6 @@ Auto-Update-WorldEdit: false
 
 Auto-Update-LuckPerms: false
 
-Auto-Update-Mcmmo
+Auto-Update-Mcmmo: false
+
+Auto-Restart-Server: false
