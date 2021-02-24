@@ -21,6 +21,7 @@ import java.util.logging.Logger;
 
 public class SpigotUpdater extends JavaPlugin {
     public static SpigotUpdater plugin;
+    private FileConfiguration config;
     @Override
     public void onEnable() {
 
@@ -81,24 +82,24 @@ public class SpigotUpdater extends JavaPlugin {
     public void onDisable() {
     }
 
-    private static class updatetimer extends TimerTask {
+    private class updatetimer extends TimerTask {
         @Override
         public void run() {
-            if (new SpigotUpdater().getConfig().getBoolean("Auto-Update-WorldEdit")) {
+            if (getConfig().getBoolean("Auto-Update-WorldEdit")) {
                 try {
                     worldedit.WorldEditDownload();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            if (new SpigotUpdater().getConfig().getBoolean("Auto-Update-LuckPerms")) {
+            if (getConfig().getBoolean("Auto-Update-LuckPerms")) {
                 try {
                     luckperms.luckpermsDownload();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            if (new SpigotUpdater().getConfig().getBoolean("Auto-Update-Mcmmo")) {
+            if (getConfig().getBoolean("Auto-Update-Mcmmo")) {
                 try {
                     mcmmo.mcmmoDownload();
                 } catch (Exception e) {
