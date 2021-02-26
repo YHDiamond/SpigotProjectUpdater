@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class getSpigotVersion {
     public static String getVersionViaVersion() {
 
-        try (InputStream inputStream = new URL("https://api.spigotmc.org/simple/0.1/index.php?action=getResource&id=88555").openStream(); Scanner scanner = new Scanner(inputStream)) {
+        try (InputStream inputStream = new URL("https://api.spigotmc.org/simple/0.1/index.php?action=getResource&id=19254").openStream(); Scanner scanner = new Scanner(inputStream)) {
             String total = "";
             while (scanner.hasNext()) {
                 total += scanner.next();
