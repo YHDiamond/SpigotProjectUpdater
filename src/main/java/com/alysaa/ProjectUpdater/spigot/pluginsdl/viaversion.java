@@ -15,8 +15,8 @@ public class viaversion {
         SpigotUpdater.plugin.getLogger().info("Downloading latest ViaVersion build!");
         OutputStream os = null;
         InputStream is = null;
-        String fileUrl = "https://ci.viaversion.com/job/ViaVersion/lastSuccessfulBuild/artifact/jar/target/ViaVersion-3.2.2-SNAPSHOT.jar";
-        String outputPath = ("plugins/update/ViaVersion-3.2.2-SNAPSHOT.jar");
+        String fileUrl = "http://myles.us/ViaVersion/latest.jar";
+        String outputPath = ("plugins/update/ViaVersion.jar");
         try {
             // create a url object
             URL url = new URL(fileUrl);

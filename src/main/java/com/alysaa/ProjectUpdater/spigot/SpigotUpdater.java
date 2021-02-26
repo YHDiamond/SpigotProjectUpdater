@@ -5,6 +5,7 @@ import com.alysaa.ProjectUpdater.spigot.command.updateCommand;
 import com.alysaa.ProjectUpdater.spigot.pluginsdl.luckperms;
 import com.alysaa.ProjectUpdater.spigot.pluginsdl.mcmmo;
 import com.alysaa.ProjectUpdater.spigot.pluginsdl.worldedit;
+import com.alysaa.ProjectUpdater.spigot.utils.versionChecker;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -17,6 +18,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Logger;
 
+import static com.alysaa.ProjectUpdater.spigot.utils.versionChecker.CheckVersionViaVersion;
 
 
 public class SpigotUpdater extends JavaPlugin {
@@ -30,8 +32,13 @@ public class SpigotUpdater extends JavaPlugin {
         enableUpdateCycle();
         createFiles();
         checkConfigVer();
+        checkPluginVersion();
         plugin = this;
 
+    }
+
+    private void checkPluginVersion() {
+        CheckVersionViaVersion();
     }
 
     private void enableUpdateCycle() {
